@@ -65,9 +65,9 @@
 					</section>
 				</div>
 				</div>
-					<!-- FlexSlider -->
-							  <script defer src="js/jquery.flexslider.js"></script>
-							  <script type="text/javascript">
+				<!-- FlexSlider -->
+							<script defer src="js/jquery.flexslider.js"></script>
+							<script type="text/javascript">
 								$(function(){
 								  SyntaxHighlighter.all();
 								});
@@ -80,7 +80,7 @@
 								  });
 								});
 							  </script>
-						<!-- FlexSlider -->
+				<!-- FlexSlider -->
 	<!-- slider -->
 	<div class="rooted">
 	<div class="container">

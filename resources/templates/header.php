@@ -15,13 +15,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/swipebox.css">
 	<!------ Light Box ------>
-    <script src="js/jquery.swipebox.min.js"></script> 
-    <script type="text/javascript">
+	<script src="js/jquery.swipebox.min.js"></script> 
+	<script type="text/javascript">
 		jQuery(function($) {
 			$(".swipebox").swipebox();
 		});
 	</script>
-    <!------ Eng Light Box ------>
+	<!------ Eng Light Box ------>
 </head>
 <body>
 <!-- header -->
