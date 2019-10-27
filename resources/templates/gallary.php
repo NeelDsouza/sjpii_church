@@ -2,7 +2,8 @@
   <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Events</h1>
+    <h1 class="h3 mb-4 text-gray-800">Gallary</h1>
+    <p class="mb-4">Here you can manage all the images that will shown in the <a target="_blank" href="../photos.php">website's photo</a> section.</p>
 
     <div class="row">
 
@@ -11,60 +12,60 @@
         <!-- Circle Buttons -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add Event</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Add Image</h6>
           </div>
           <div class="card-body">
           <div class="row">
+            <div class="form-group custom-file">
+              <input type="file" class="form-control form-control-user custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Event Details</h1>
               </div>
-              <?php add_event();?>
-              <form class="user" action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-user" name="evname" id="" placeholder="Event Name">
-                </div>
+              <form class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="date" class="form-control form-control-user" name="evstartdate" id="" placeholder="Start Date">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
                   </div>
                   <div class="col-sm-6">
-                    <input type="date" class="form-control form-control-user" name="evenddate" id="" placeholder="End Date">
+                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
                   </div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="evvenue" id="" placeholder="Venue">
+                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                   </div>
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="evorganiser" id="" placeholder="Organiser">
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
                   </div>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="evshortdesc" id="" placeholder="Short Description in 100 words">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control form-control-user" name="evbigdesc" aria-label="With textarea" placeholder="Detailed Description..."></textarea>
-                </div>
-                <div class="form-group custom-file">
-                  <input type="file" class="form-control form-control-user custom-file-input" id="customFile" name="evposter" >
-                  <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
+                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                  Register Account
+                </a>
                 <hr>
-                <!-- <a href="index.php" class="btn btn-primary btn-user btn-block">
-                  <i class="fas fa-calendar-plus"></i> &nbsp;&nbsp; Add an Event
-                </a> -->
-                <div class="form-group btn btn-primary btn-user btn-block">
-                  <i class="fas fa-calendar-plus"></i>
-                  <input type="submit" class="btn" style="color: white;" name="add_event" id="" value="Add Event">
-                </div>
+                <a href="index.php" class="btn btn-google btn-user btn-block">
+                  <i class="fab fa-google fa-fw"></i> Register with Google
+                </a>
+                <a href="index.php" class="btn btn-facebook btn-user btn-block">
+                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                </a>
               </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="login.html">Already have an account? Login!</a>
+              </div>
             </div>
           </div>
-          <div class="col-lg-5 d-none d-lg-block">
-            <img id="preview" src="img/no-image.jpg" alt="Event Image Preview" style="width:100%; height:100%"/>
-          </div>
+          <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
         </div>
           </div>
         </div>

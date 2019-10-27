@@ -62,7 +62,7 @@ function fetch_array($result){
 }
 
 function last_id($table_name){
-    $last_id = confirm("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'gruhashodh' AND TABLE_NAME = '{$table_name}'");
+    $last_id = confirm("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'sjpii_church' AND TABLE_NAME = '{$table_name}'");
     return $last_id;
 }
 ?>

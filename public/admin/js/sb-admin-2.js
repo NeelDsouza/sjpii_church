@@ -46,4 +46,22 @@
     e.preventDefault();
   });
 
+  $(document).on("change", 'input[type="file"]', function (e) {
+    var fileName = e. target. files[0]. name;
+    $(this).next()[0].innerText = fileName;
+    // alert('The file "' + fileName + '" has been selected.' );
+  });
+
+  // function previewImage(){
+  $(document).on("change", '#customFile', function (e) {
+    var previewBox = document.getElementById("preview");
+    previewBox.src = URL.createObjectURL(event.target.files[0]);
+    // $('.bg-register-image').css('background-image','url(URL.createObjectURL(event.target.files[0]))');
+  });
+    
+  $(document).on("click", "#eventDeleteModal", function () {
+    var eventid = $(this).data('eventid');
+    $("#eventidDeleteModal").val(eventid);
+  });
+
 })(jQuery); // End of use strict

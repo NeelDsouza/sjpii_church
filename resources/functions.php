@@ -2,18 +2,18 @@
 require_once("config.php");
 
 function add_message(){
-if(isset($_POST['add_message'])) {
-$mname = escape_string($_POST['mname']);
-$memail = escape_string($_POST['memail']);
-$mmessage = escape_string($_POST['mmessage']);
-$msubject = escape_string($_POST['msubject']);
+	if(isset($_POST['add_message'])) {
+	$mname = escape_string($_POST['mname']);
+	$memail = escape_string($_POST['memail']);
+	$mmessage = escape_string($_POST['mmessage']);
+	$msubject = escape_string($_POST['msubject']);
 
-$query = query("INSERT INTO messages(mname, memail, mmessage, msubject) VALUES ('{$mname}','{$memail}','{$mmessage}','{$msubject}')");
-confirm($query);
-set_message("Message sent successfully");
+	$query = query("INSERT INTO messages(mname, memail, mmessage, msubject) VALUES ('{$mname}','{$memail}','{$mmessage}','{$msubject}')");
+	confirm($query);
+	set_message("Message sent successfully");
 
-echo "<script> window.location.assign('index.php'); </script>";
-}
+	echo "<script> window.location.assign('index.php'); </script>";
+	}
 }
 
 function get_images_in_gallary(){
@@ -36,28 +36,27 @@ function get_upcoming_events(){
 	$query = query("SELECT * from events");
 	confirm($query);
 	$rows = mysqli_num_rows($query);
-if($rows>0){
+	if($rows>0){
 	while($row = fetch_array($query)) {
 	$event = <<<DELIMETER
-       		<div class="col-md-4 service_grid">
+	<div class="col-md-4 service_grid">
 		<div class="view view-tenth">
-							 <a href="single.php?eventid={$row['eventid']}">
-							  <div class="inner_content clearfix">
-							<div class="product_image">
-								<img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
-								<div class="mask" >
-								<h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
-									<p>{$row['evshortdesc']}</p>
-                      <div class="event_show_more">SHOW MORE</div>
-								</div>
-								</div>
-								</div>
-							</a> 
-						  </div>
-       			<h4>{$row['evname']}</h4>
-       			<p>{$row['evshortdesc']}</p>
-       		  
-       		</div>
+			<a href="single.php?eventid={$row['eventid']}">
+			  <div class="inner_content clearfix">
+				<div class="product_image">
+				<img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
+				<div class="mask" >
+					<h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
+					<p>{$row['evshortdesc']}</p>
+	                <div class="event_show_more">SHOW MORE</div>
+				</div>
+				</div>
+				</div>
+			</a> 
+		  </div>
+		<h4>{$row['evname']}</h4>
+       	<p>{$row['evshortdesc']}</p>
+    </div>
 DELIMETER;
 echo $event;
 }
@@ -70,30 +69,28 @@ function get_past_events(){
 	$query = query("SELECT * from events");
 	confirm($query);
 	$rows = mysqli_num_rows($query);
-if($rows>0){
+	if($rows>0){
 	while($row = fetch_array($query)) {
 	$event = <<<DELIMETER
-    <div class="col-md-4 grid_7">
-    <div class="element">
-      <div class="view view-tenth">
-        <a href="single.php?eventid={$row['eventid']}">
-         <div class="inner_content clearfix">
-        <div class="product_image">
-        <img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
-        <div class="mask" >
-        <h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
-          <p>{$row['evshortdesc']}</p>
-            <div class="event_show_more">SHOW MORE</div>
-
-          </div>
-          </div>
-         </div>
-        </a> 
-       </div>
-      
-      <h4>{$row['evname']}</h4>
-    <p>{$row['evshortdesc']}</p>
-    </div>
+	<div class="col-md-4 grid_7">
+	<div class="element">
+	<div class="view view-tenth">
+		<a href="single.php?eventid={$row['eventid']}">
+		<div class="inner_content clearfix">
+		<div class="product_image">
+		<img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
+		<div class="mask" >
+		<h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
+		<p>{$row['evshortdesc']}</p>
+		<div class="event_show_more">SHOW MORE</div>
+		</div>
+		</div>
+	</div>
+	</a> 
+	</div>
+	<h4>{$row['evname']}</h4>
+	<p>{$row['evshortdesc']}</p>
+	</div>
   </div>
 DELIMETER;
 echo $event;
@@ -104,27 +101,27 @@ echo $event;
 }
 
 function show_comments($eid){
-$query = query("SELECT * from comments WHERE eventid = '{$eid}'");
+	$query = query("SELECT * from comments WHERE eventid = '{$eid}'");
 	confirm($query);
 	$rows = mysqli_num_rows($query);
-if($rows>0){
+	if($rows>0){
 	echo "<h3>{$rows} Responses</h3>";
 	while($row = fetch_array($query)) {
 	$event = <<<DELIMETER
-    <div class="comments-top-top">
-			<div class="top-comment-left">
-				<img class="img-responsive" src="images/co.png" alt="">
-			</div>
-			<div class="top-comment-right">
-				<ul>
-					<li><span class="left-at"><a href="#">{$row['cname']}</span></li>
-					<li><span class="right-at">{$row['cdate']}</span></li>
-					<li><a class="reply" href="#">REPLY</a></li>
-				</ul>
-			<p>{$row['ccomment']}</p>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
+	    <div class="comments-top-top">
+	<div class="top-comment-left">
+	<img class="img-responsive" src="images/co.png" alt="">
+	</div>
+	<div class="top-comment-right">
+	<ul>
+	<li><span class="left-at"><a href="#">{$row['cname']}</span></li>
+	<li><span class="right-at">{$row['cdate']}</span></li>
+	<li><a class="reply" href="#">REPLY</a></li>
+	</ul>
+	<p>{$row['ccomment']}</p>
+	</div>
+	<div class="clearfix"> </div>
+	</div>
 DELIMETER;
 echo $event;
 	}
@@ -134,19 +131,132 @@ echo $event;
 }
 
 function add_comment($eid){
-if(isset($_POST['add_comment'])) {
-	$cname = escape_string($_POST['cname']);
-	$cmobile = escape_string($_POST['cmobile']);
-	$ccommentv= escape_string($_POST['ccomment']);
-	$cdate = escape_string($_POST['cdate']);
+	if(isset($_POST['add_comment'])) {
+		$cname = escape_string($_POST['cname']);
+		$cmobile = escape_string($_POST['cmobile']);
+		$ccommentv= escape_string($_POST['ccomment']);
+		$cdate = escape_string($_POST['cdate']);
 
-	$query = query("INSERT INTO comments (cname, cmobile, ccomment, cdate, eventid) VALUES ('{$cname}','{$cmobile}','{$ccomment}','{$cdate}','{$eid}')");
+		$query = query("INSERT INTO comments (cname, cmobile, ccomment, cdate, eventid) VALUES ('{$cname}','{$cmobile}','{$ccomment}','{$cdate}','{$eid}')");
+		confirm($query);
+		set_message("Commented successfully");
+
+		echo "<script> window.location.assign('events.php?eventid={$eid}'); </script>";
+	}
+}
+
+function add_event(){
+	if(isset($_POST['add_event'])) {
+		$evname = escape_string($_POST['evname']);
+		$evshortdesc = escape_string($_POST['evshortdesc']);
+		$evbigdesc = escape_string($_POST['evbigdesc']);
+		$evstartdate = escape_string($_POST['evstartdate']);
+		$evenddate = escape_string($_POST['evenddate']);
+		$evvenue = escape_string($_POST['evvenue']);
+		$evorganiser = escape_string($_POST['evorganiser']);
+		$evposter = escape_string($_FILES['evposter']['name']);
+		$image_temp_location = $_FILES['evposter']['tmp_name'];
+		// $last_id = last_id("events");  ==== $last_id . "-" . 
+		$extension = explode("/", $_FILES['evposter']['type']);
+		$image_name = rand(00000,99999) . "." . $extension[1];
+		move_uploaded_file($image_temp_location  , UPLOADS . DS . $image_name);
+
+		$query = query("INSERT INTO events (evname, evposter, evshortdesc, evbigdesc, evstartdate, evenddate, evvenue, evorganiser) VALUES ('{$evname}','{$image_name}','{$evshortdesc}','{$evbigdesc}','{$evstartdate}','{$evenddate}','{$evvenue}','{$evorganiser}')");
+		confirm($query);
+		set_message("Event added successfully");
+
+		echo "<script> window.location.assign('index.php?events'); </script>";
+	}
+}
+
+function get_all_events(){
+	$query = query("SELECT * from events");
 	confirm($query);
-	set_message("Commented successfully");
-
-	echo "<script> window.location.assign('events.php?eventid={$eid}'); </script>";
+	$rows = mysqli_num_rows($query);
+	if($rows>0){
+	while($row = fetch_array($query)) {
+	$event = <<<DELIMETER
+	<tr>
+	<td>{$row['evname']}</td>
+	<td>{$row['evstartdate']}</td>
+	<td>{$row['evenddate']}</td>
+	<td>
+	<div class="text-center">
+	<img class="img-fluid" style="width: 25rem;" src="../../resources/uploads/{$row['evposter']}" alt="Event Poster">
+	</div>
+	</td>
+	<td>
+	<a href="index.php?edit_event&eventid={$row['eventid']}" class="btn btn-warning btn-icon-split btn-sm">
+	<span class="icon text-white-50">
+		<i class="fas fa-edit"></i>
+	</span>
+	<span class="text">Edit</span> 
+	</a>
+	<a class="btn btn-danger btn-icon-split btn-sm" id="eventDeleteModal" href="" data-eventid={$row['eventid']} data-toggle="modal" data-target="#deleteModal">
+	<span class="icon text-white-50">
+		<i class="fas fa-trash"></i>
+	</span>
+	<span class="text">Delete</span>
+	</a>
+	</td>
+	</tr>
+DELIMETER;
+echo $event;
+	}
+} else {
+	echo "<p>No past events.</p>";
 }
 }
 
+function edit_event($eventid){
+	if(isset($_POST['edit_event'])) {
+		$evname = escape_string($_POST['evname']);
+		$evshortdesc = escape_string($_POST['evshortdesc']);
+		$evbigdesc = escape_string($_POST['evbigdesc']);
+		$evstartdate = escape_string($_POST['evstartdate']);
+		$evenddate = escape_string($_POST['evenddate']);
+		$evvenue = escape_string($_POST['evvenue']);
+		$evorganiser = escape_string($_POST['evorganiser']);
 
+		if($_FILES['evposter']['name'] !== ''){
+			$evposter = escape_string($_FILES['evposter']['name']);
+			$image_temp_location = $_FILES['evposter']['tmp_name'];
+			// $last_id = last_id("events");  ==== $last_id . "-" . 
+			$extension = explode("/", $_FILES['evposter']['type']);
+			$image_name = rand(00000,99999) . "." . $extension[1];
+			move_uploaded_file($image_temp_location  , UPLOADS . DS . $image_name);
+
+			$img_query = query("SELECT evposter from events WHERE eventid = $eventid ");
+			$old_img = fetch_array($img_query);
+			unlink(UPLOADS . DS . $old_img['evposter']);
+			
+			$query = "UPDATE events SET ";
+			$query.= "evname = '{$evname}',";
+			$query.= "evposter = '{$image_name}',";
+			$query.= "evshortdesc = '{$evshortdesc}',";
+			$query.= "evbigdesc = '{$evbigdesc}',";
+			$query.= "evstartdate = '{$evstartdate}',";
+			$query.= "evenddate = '{$evenddate}',";
+			$query.= "evvenue = '{$evvenue}',";
+			$query.= "evorganiser = '{$evorganiser}'";
+			$query.= "WHERE eventid = '{$eventid}'";
+			confirm(query($query));
+			set_message("Event Edited successfully");
+		} 
+		else {
+			$query = "UPDATE events SET ";
+			$query.= "evname = '{$evname}',";
+			$query.= "evshortdesc = '{$evshortdesc}',";
+			$query.= "evbigdesc = '{$evbigdesc}',";
+			$query.= "evstartdate = '{$evstartdate}',";
+			$query.= "evenddate = '{$evenddate}',";
+			$query.= "evvenue = '{$evvenue}',";
+			$query.= "evorganiser = '{$evorganiser}'";
+			$query.= "WHERE eventid = '{$eventid}'";
+			confirm(query($query));
+			set_message("Event Edited successfully");
+		}
+		echo "<script> window.location.assign('index.php?events'); </script>";
+	}
+}
 ?>

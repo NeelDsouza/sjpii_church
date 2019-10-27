@@ -86,11 +86,12 @@
     </div>
   </li>
 
-  <!-- Nav Item - Charts -->
+  <!-- Nav Item - Gallary -->
   <li class="nav-item">
-    <a class="nav-link" href="charts.html">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Charts</span></a>
+    <a class="nav-link" href="index.php?gallary">
+      <!-- <i class="fas fa-fw fa-chart-area"></i> -->
+      <i class="fas fa-fw fa-image"></i>
+      <span>Gallary</span></a>
   </li>
 
   <!-- Nav Item - Tables -->
