@@ -63,5 +63,33 @@
     var eventid = $(this).data('eventid');
     $("#eventidDeleteModal").val(eventid);
   });
+    
+  $(document).on("click", "#imageDeleteModal", function () {
+    var imageid = $(this).data('imageid');
+    $("#imageidDeleteModal").val(imageid);
+  });
+  
+  $(document).on("click", "#addImageButton", function () {
+    var fd = new FormData();
+    // var title = $("#addImageButton").val();
+    var file = $('#addImageFile')[0].files[0];
+    fd.append('file', file);
+    fd.append('action', "add_image");
+    if(file){
+      $.ajax({
+        url: '../../resources/controller.php',
+        type: 'post',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(response){
+          // $("#ImagesModalBody").html(response);
+          window.location.assign('index.php?gallary');
+        }
+      }); 
+    }
+  });
+
+  
 
 })(jQuery); // End of use strict

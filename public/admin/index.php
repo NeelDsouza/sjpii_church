@@ -22,6 +22,9 @@
   else if(isset($_GET['delete_event_id'])){
     include(TEMPLATES . "/delete_event.php");
   }
+  else if(isset($_GET['delete_image_id'])){
+    include(TEMPLATES . "/delete_image.php");
+  }
   else {
     // include(TEMPLATES . "/404.html");  
   }

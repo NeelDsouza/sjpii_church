@@ -15,77 +15,55 @@
             <h6 class="m-0 font-weight-bold text-primary">Add Image</h6>
           </div>
           <div class="card-body">
-          <div class="row">
-            <div class="form-group custom-file">
-              <input type="file" class="form-control form-control-user custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-          <div class="col-lg-7">
-            <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Event Details</h1>
-              </div>
-              <form class="user">
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
-                  </div>
+            <div class="row">
+              <div class="form-group custom-file" style="display: flex;">
+                <div class="col-sm-10 mb-6 mb-sm-3">
+                  <input type="file" class="form-control form-control-user custom-file-input" id="addImageFile">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                  </div>
-                </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                  Register Account
-                </a>
-                <hr>
-                <a href="index.php" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.php" class="btn btn-facebook btn-user btn-block">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
-              </form>
-              <hr>
-              <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
+                <div class="col-sm-2 mb-6 mb-sm-3">              
+                <button id="addImageButton" class="btn btn-success btn-icon-split">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-check"></i>
+                  </span>
+                  <span class="text">Add Image</span>
+                </button>
               </div>
             </div>
+            <div class="row" style="width:100%;margin: 0;padding: 0.5%;">
+              <?php get_all_images_in_admin();?>
+              
+            </div>
           </div>
-          <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
         </div>
-          </div>
-        </div>
-
-        <!-- Brand Buttons -->
-        <!-- <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
-          </div>
-          <div class="card-body">
-            <p>Google and Facebook buttons are available featuring each company's respective brand color. They are used on the user login and registration pages.</p>
-            <p>You can create more custom buttons by adding a new color variable in the <code>_variables.scss</code> file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the <code>_buttons.scss</code> file.</p>
-            <a href="#" class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i> .btn-google</a>
-            <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a>
-
-          </div>
-        </div> -->
+      </div>
 
       </div>
 
+      
+      <!-- Delete Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content bg-gradient-danger">
+            <div class="modal-header">
+              <h5 class="modal-title text-white" id="deleteModalLabel">Delete</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-white">
+              Are you sure you want to permanently delete this?
+            </div>
+            <div class="modal-footer">
+              <input type="text" value="" id="imageidDeleteModal" hidden/>
+              <button type="button" class="btn btn-link text-white" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-white ml-auto" onclick="window.location.assign('index.php?delete_image_id=' + $('#imageidDeleteModal').val());">Yes, Delete it!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Delete Modal Ends -->
+      
       <!-- <div class="col-lg-6">
 
         <div class="card shadow mb-4">

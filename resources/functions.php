@@ -22,11 +22,11 @@ function get_images_in_gallary(){
 
 	while($row = fetch_array($query)) {
 	$image = <<<DELIMETER
-    <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
-      <div class="portfolio-wrapper grid_box">		
-        <a href="images/{$row['image']}" class="swipebox"  title="{$row['title']}"> <img src="images/{$row['image']}" class="img-responsive" alt="{$row['title']}"><span class="zoom-icon"></span> </a>
-      </div>
-    </div>
+	<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+	<div class="portfolio-wrapper grid_box">		
+		<a href="images/{$row['image']}" class="swipebox"  title="{$row['title']}"> <img src="images/{$row['image']}" class="img-responsive" alt="{$row['title']}"><span class="zoom-icon"></span> </a>
+	</div>
+	</div>
 DELIMETER;
 echo $image;
 	}
@@ -158,7 +158,7 @@ function add_event(){
 		$image_temp_location = $_FILES['evposter']['tmp_name'];
 		// $last_id = last_id("events");  ==== $last_id . "-" . 
 		$extension = explode("/", $_FILES['evposter']['type']);
-		$image_name = rand(00000,99999) . "." . $extension[1];
+		$image_name = "Event-" . rand(00000,99999) . "." . $extension[1];
 		move_uploaded_file($image_temp_location  , UPLOADS . DS . $image_name);
 
 		$query = query("INSERT INTO events (evname, evposter, evshortdesc, evbigdesc, evstartdate, evenddate, evvenue, evorganiser) VALUES ('{$evname}','{$image_name}','{$evshortdesc}','{$evbigdesc}','{$evstartdate}','{$evenddate}','{$evvenue}','{$evorganiser}')");
@@ -223,7 +223,7 @@ function edit_event($eventid){
 			$image_temp_location = $_FILES['evposter']['tmp_name'];
 			// $last_id = last_id("events");  ==== $last_id . "-" . 
 			$extension = explode("/", $_FILES['evposter']['type']);
-			$image_name = rand(00000,99999) . "." . $extension[1];
+			$image_name = "Event-" . rand(00000,99999) . "." . $extension[1];
 			move_uploaded_file($image_temp_location  , UPLOADS . DS . $image_name);
 
 			$img_query = query("SELECT evposter from events WHERE eventid = $eventid ");
@@ -259,4 +259,29 @@ function edit_event($eventid){
 		echo "<script> window.location.assign('index.php?events'); </script>";
 	}
 }
+
+function get_all_images_in_admin(){
+	$query = query("SELECT * from images");
+	confirm($query);
+	$rows = mysqli_num_rows($query);
+	if($rows>0){
+	while($row = fetch_array($query)) {
+	$image = <<<DELIMETER
+	<div class="card col-xl-4 col-md-6 mb-4" style="width: 18rem; padding: 0;">
+		<img class="card-img-top" src="../../resources/uploads/{$row['image']}" alt="{$row['title']}">
+		<a class="btn btn-danger btn-icon-split btn-sm" id="imageDeleteModal" href="" data-imageid={$row['imageid']} data-toggle="modal" data-target="#deleteModal">
+		<span class="icon text-white-50">
+			<i class="fas fa-trash"></i>
+		</span>
+		<span class="text">Delete</span>
+		</a>
+	</div>
+DELIMETER;
+echo $image;
+	}
+} else {
+	echo "<p>No images found.</p>";
+}
+}
+
 ?>
