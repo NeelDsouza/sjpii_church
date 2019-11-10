@@ -39,8 +39,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"> Sermons </a></li>|
 						<li><a href="#">Online Giving </a></li>|
 						<li><a href="#">Praying Groups</a></li>|
-						<li><a href="#">Worship Services</a></li>
-							<div class="clearfix"> </div>						
+						<li><a href="forms.php">Online Form</a></li>
+						<div class="clearfix"> </div>
 					</ul>
 				</div>
 					<div class="clearfix"> </div>

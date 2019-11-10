@@ -20,6 +20,13 @@ class Controller
                     confirm($query);
                 }
                 break;
+            case "add_form" : 
+                // $filename = escape_string($_FILES['file']['name']);
+                $title = escape_string($_POST['title']);
+                $src = escape_string($_POST['src']);
+                $query = query("INSERT INTO forms(title, src) VALUES ('{$title}','{$src}')");
+                confirm($query);
+                break;
             
         
         }

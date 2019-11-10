@@ -25,6 +25,12 @@
   else if(isset($_GET['delete_image_id'])){
     include(TEMPLATES . "/delete_image.php");
   }
+  else if(isset($_GET['forms'])){
+    include(TEMPLATES . "/forms.php");
+  }
+  else if(isset($_GET['delete_form_id'])){
+    include(TEMPLATES . "/delete_form.php");
+  }
   else {
     // include(TEMPLATES . "/404.html");  
   }

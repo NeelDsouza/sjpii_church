@@ -24,7 +24,7 @@ function get_images_in_gallary(){
 	$image = <<<DELIMETER
 	<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
 	<div class="portfolio-wrapper grid_box">		
-		<a href="images/{$row['image']}" class="swipebox"  title="{$row['title']}"> <img src="images/{$row['image']}" class="img-responsive" alt="{$row['title']}"><span class="zoom-icon"></span> </a>
+		<a href="../resources/uploads/{$row['image']}" class="swipebox"  title="{$row['title']}"> <img src="../resources/uploads/{$row['image']}" class="img-responsive" alt="{$row['title']}"><span class="zoom-icon"></span> </a>
 	</div>
 	</div>
 DELIMETER;
@@ -283,5 +283,55 @@ echo $image;
 	echo "<p>No images found.</p>";
 }
 }
+
+function get_forms(){
+	$query = query("SELECT * from forms");
+	confirm($query);
+
+	while($row = fetch_array($query)) {
+	$form = <<<DELIMETER
+	<div class="container">
+	<h2>{$row['title']}</h2>
+		<div class="portfolio">
+			<iframe src="{$row['src']}" width="640" height="551" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			
+	  <div class="clearfix"></div>
+	</div>
+DELIMETER;
+echo $form;
+	}
+}
+
+function get_all_forms(){
+	$query = query("SELECT * from forms");
+	confirm($query);
+
+	while($row = fetch_array($query)) {
+	$form = <<<DELIMETER
+	<div class="form-group row">
+		<div class="col-sm-9 mb-2 mb-sm-0">
+		<input type="text" class="form-control form-control-user" name="title" placeholder="Form Title" value="{$row['title']}">
+		</div>
+		<div class="col-sm-3 mb-1 mb-sm-0">
+		<a href="index.php?delete_form_id={$row['formid']}"
+			<button class="btn btn-danger btn-icon-split">
+				<span class="icon text-white-50">
+				<i class="fas fa-trash"></i>
+				</span>
+				<span class="text">Delete</span>
+			</button>
+		</a>
+		</div>
+	</div>
+	<div class="form-group">
+		<textarea class="form-control form-control-user" name="src" aria-label="With textarea" placeholder="Google Form iframe code">{$row['src']}</textarea>
+	</div>
+	<hr>
+DELIMETER;
+echo $form;
+	}
+}
+
+
 
 ?>

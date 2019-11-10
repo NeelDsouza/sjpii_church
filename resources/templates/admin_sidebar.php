@@ -94,6 +94,13 @@
       <span>Gallary</span></a>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link" href="index.php?forms">
+      <!-- <i class="fas fa-fw fa-chart-area"></i> -->
+      <i class="fab fa-wpforms"></i>
+      <span>Google Forms</span></a>
+  </li>
+
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="tables.html">
