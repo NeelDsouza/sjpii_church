@@ -31,6 +31,12 @@
   else if(isset($_GET['delete_form_id'])){
     include(TEMPLATES . "/delete_form.php");
   }
+  else if(isset($_GET['notices'])){
+    include(TEMPLATES . "/notices.php");
+  }
+  else if(isset($_GET['delete_notice_id'])){
+    include(TEMPLATES . "/delete_notice.php");
+  }
   else {
     // include(TEMPLATES . "/404.html");  
   }

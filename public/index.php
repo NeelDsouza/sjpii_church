@@ -160,13 +160,15 @@
 		</div>
 		<div class="col-md-3 rooted-right">
 			<div class="wor">
-				<h3>Worship Services</h3>
+				<h3>Notices for the Week</h3>
+				<marquee direction="up" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
 				<ul>
 					<li><a href="#">• Tuesdays at 19:00 am</a></li>
 					<li><a href="#">• Fridays at 9:45 am</a></li>
 					<li><a href="#">• Saturdays at 20:00 am</a></li>
 					<li><a href="#">• Sundays at 10:00 am</a></li>
 				</ul>
+				</marquee>
 			</div>
 			<div class="fb-like-box" data-href="https://www.facebook.com/St-John-Paul-II-Church-Thathwade-Wakad-413228455430540/" data-width="250" data-height="380" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
 			<div id="fb-root"></div>

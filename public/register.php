@@ -5,7 +5,7 @@
 				<div class="register">
 				<div class="container">
 				<h2>Register</h2>
-				<?php login();?>
+				<!-- <php login();?> -->
 				 <div class="col-md-6  register-top-grid">
 					<h3>Login Information</h3>
 					<form action="" method="post" enctype="multipart/form-data">					
@@ -46,7 +46,7 @@
 						</div>
 						<div class="alert alert-danger" role="alert" style="padding: 10px; display: none">
 						</div>
-					   <div><?php display_message();?></div>
+					 <!--   <div><php display_message();?></div> -->
 					   <div class="register-but" id="create_user" style="display: none">
 						   <input type="submit" value="Sign Up" name="create_user">
 						</div>

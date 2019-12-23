@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="index.php"><img src="images/logo.png" class="img-responsive" alt="" /></a>
 				</div>
 				<div class="bottom-left">
-					<a href="register.html">NEW HERE? GET INVOLVED</a>
+					<a href="register.php">NEW HERE? GET INVOLVED</a>
 				</div>
 					<div class="clearfix"> </div>
 			</div>

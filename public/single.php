@@ -3,22 +3,24 @@
 
 <?php 
   if(isset($_GET['eventid'])) {
-  $query = query("SELECT * FROM events WHERE eventid = " . escape_string($_GET['eventid']) . " ");
-  confirm($query);
+	$que = query("SELECT * FROM events WHERE eventid = " . escape_string($_GET['eventid']) . " ");
+	confirm($que);
 
-  while($row = fetch_array($query)) {
-    $eventid           	= escape_string($row['eventid']);
-    $evname           	= escape_string($row['evname']);
-    $evposter           = escape_string($row['evposter']);
-    $evbigdesc          = escape_string($row['evbigdesc']);
-    $evstartdate        = escape_string($row['evstartdate']);
-    $evenddate          = escape_string($row['evenddate']);
-    $evorganiser        = escape_string($row['evorganiser']);
-    $evvenue            = escape_string($row['evvenue']);
-  }
-//   update_profile();
-  } else
-  echo "<script> window.location.assign('./events.php'); </script>";
+	while($row = fetch_array($que)) {
+		$eventid = escape_string($row['eventid']);
+		$evname  = escape_string($row['evname']);
+		$evname = escape_string($row['evname']);
+		$evposter= escape_string($row['evposter']);
+		$evbigdesc= escape_string($row['evbigdesc']);
+		$evstartdate= escape_string($row['evstartdate']);
+		$evenddate= escape_string($row['evenddate']);
+		$evorganiser= escape_string($row['evorganiser']);
+		$evvenue= escape_string($row['evvenue']);	
+	}
+  }
+	else
+	echo "<script> window.location.assign('./events.php'); </script>";
+		//   update_profile();
 
 ?>
 
@@ -27,7 +29,7 @@
 <div class="single-page-artical">
 	<div class="artical-content">
 		<h3><?php echo $evname ?></h3>
-		<img class="img-responsive" src="images/<?php echo $evposter ?>" title="banner1">
+		<img class="img-responsive" src="../resources/uploads/<?php echo $evposter ?>" title="banner1">
 		<p><?php echo $evbigdesc ?></p>
 		</div>
 		<div class="artical-links">

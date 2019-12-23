@@ -78,7 +78,7 @@
     fd.append('action', "add_form");
     if(title != "" && src != ""){
       $.ajax({
-        url: '../../resources/controller.php',
+        url: '../../resources/ajax_functions.php',
         type: 'post',
         data: fd,
         contentType: false,
@@ -99,7 +99,7 @@
     fd.append('action', "add_image");
     if(file){
       $.ajax({
-        url: '../../resources/controller.php',
+        url: '../../resources/ajax_functions.php',
         type: 'post',
         data: fd,
         contentType: false,
@@ -107,6 +107,28 @@
         success: function(response){
           // $("#ImagesModalBody").html(response);
           window.location.assign('index.php?gallary');
+        }
+      }); 
+    }
+  });
+  
+  $(document).on("click", "#addNoticeButton", function () {
+    var fd = new FormData();
+    var notice = $("#noticeInput").val();
+    var expdate = $("#expdateInput").val();
+    fd.append('notice', notice);
+    fd.append('expdate', expdate);
+    fd.append('action', "add_notice");
+    if(notice != "" && expdate != ""){
+      $.ajax({
+        url: '../../resources/ajax_functions.php',
+        type: 'post',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(response){
+          // $("#ImagesModalBody").html(response);
+          window.location.assign('index.php?notices');
         }
       }); 
     }

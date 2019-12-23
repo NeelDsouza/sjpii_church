@@ -3,6 +3,7 @@
 	<!-- header -->
 	<!-- photos -->
 	<div class="photos">
+	<div class="container">
 	<?php get_forms();?>
 		</div>
 	</div>

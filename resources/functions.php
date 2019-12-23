@@ -44,7 +44,7 @@ function get_upcoming_events(){
 			<a href="single.php?eventid={$row['eventid']}">
 			  <div class="inner_content clearfix">
 				<div class="product_image">
-				<img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
+				<img src="../resources/uploads/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
 				<div class="mask" >
 					<h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
 					<p>{$row['evshortdesc']}</p>
@@ -78,7 +78,7 @@ function get_past_events(){
 		<a href="single.php?eventid={$row['eventid']}">
 		<div class="inner_content clearfix">
 		<div class="product_image">
-		<img src="images/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
+		<img src="../resources/uploads/{$row['evposter']}" class="img-responsive" alt="{$row['evname']}"/>
 		<div class="mask" >
 		<h4>{$row['evstartdate']} to {$row['evenddate']}</h4>
 		<p>{$row['evshortdesc']}</p>
@@ -290,10 +290,9 @@ function get_forms(){
 
 	while($row = fetch_array($query)) {
 	$form = <<<DELIMETER
-	<div class="container">
-	<h2>{$row['title']}</h2>
-		<div class="portfolio">
-			<iframe src="{$row['src']}" width="640" height="551" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+	<div class="portfolio">
+		<h2>{$row['title']}</h2>
+			<iframe src="{$row['src']}" width="100%" height="551" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 			
 	  <div class="clearfix"></div>
 	</div>
@@ -332,6 +331,30 @@ echo $form;
 	}
 }
 
+function get_all_notices(){
+	$query = query("SELECT * from notices");
+	confirm($query);
+
+	while($row = fetch_array($query)) {
+	$notice = <<<DELIMETER
+		<tr>
+		<td>{$row['notice']}</td>
+		<td>{$row['expdate']}</td>
+		<td>
+		<a href="index.php?delete_notice_id={$row['nid']}"
+			<button id="deleteNoticeButton" class="btn btn-danger btn-sm btn-icon-split">
+				<span class="icon text-white-50">
+				<i class="fas fa-trash"></i>
+				</span>
+				<span class="text">Delete</span>
+			</button>
+		</a>
+		</td>
+		</tr>
+DELIMETER;
+echo $notice;
+	}
+}
 
 
 ?>
