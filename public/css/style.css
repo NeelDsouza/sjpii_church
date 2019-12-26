@@ -91,6 +91,9 @@ h4, h5, h6, h1, h2, h3 {
 }
  .logo {
      float:left;
+     width: 10%;
+     margin-left: 4%;
+     margin-top: -20px;
 }
  .logo a {
      display: block;
@@ -117,7 +120,14 @@ h4, h5, h6, h1, h2, h3 {
  .head-nav ul{
      padding:0;
      margin: 1.5em 0;
+     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
+.head-nav ul label{
+    line-height: 40px;
+}
+
  *, *:after, *::before {
      -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -527,13 +537,14 @@ h4, h5, h6, h1, h2, h3 {
  .rooted-right li {
      display: block;
      margin: 1.2em 0;
+     color: #6d6d6d;
 }
  .rooted-right ul{
      padding:0;
 }
- .rooted-right li a{
+ /* .rooted-right li a{
      color:#6d6d6d;
-}
+} */
  .rooted-right li a:hover{
      color:#97956c;
 }
@@ -1868,7 +1879,8 @@ h4, h5, h6, h1, h2, h3 {
     }
      .logo {
          float: left;
-         width: 60%;
+         width: 12%;
+         margin-top: -10px;
     }
      .bottom-left {
          display: none;
@@ -1970,7 +1982,8 @@ h4, h5, h6, h1, h2, h3 {
     }
      .logo {
          float: left;
-         width: 47%;
+         width: 15%;
+         margin-top: -5px;
     }
      .bottom-left a {
          font-size: 0.8125em;

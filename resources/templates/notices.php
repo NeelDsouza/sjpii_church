@@ -52,7 +52,7 @@
                         </button>
                     </td>
                     </tr>
-                    <?php get_all_notices();?>
+                    <?php get_all_notices_in_admin();?>
                     </form>
                   </tbody>
                 </table>

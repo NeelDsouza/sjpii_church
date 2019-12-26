@@ -331,7 +331,7 @@ echo $form;
 	}
 }
 
-function get_all_notices(){
+function get_all_notices_in_admin(){
 	$query = query("SELECT * from notices");
 	confirm($query);
 
@@ -356,5 +356,13 @@ echo $notice;
 	}
 }
 
+function get_all_notices(){
+	$query = query("SELECT * from notices WHERE expdate >= CURDATE()");
+	confirm($query);
+
+	while($row = fetch_array($query)) {
+		echo "<li>• {$row['notice']}</li>";
+	}
+}
 
 ?>

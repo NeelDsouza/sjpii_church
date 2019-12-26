@@ -1,4 +1,5 @@
 <?php require_once( "../resources/config.php"); ?>
+<?php require_once( "../resources/functions.php"); ?>
 <?php include( TEMPLATES . "/header.php"); ?>
 	<!-- header -->
 	<!-- slider -->
@@ -161,12 +162,9 @@
 		<div class="col-md-3 rooted-right">
 			<div class="wor">
 				<h3>Notices for the Week</h3>
-				<marquee direction="up" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+				<marquee direction="up" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">
 				<ul>
-					<li><a href="#">• Tuesdays at 19:00 am</a></li>
-					<li><a href="#">• Fridays at 9:45 am</a></li>
-					<li><a href="#">• Saturdays at 20:00 am</a></li>
-					<li><a href="#">• Sundays at 10:00 am</a></li>
+				<?php get_all_notices(); ?>
 				</ul>
 				</marquee>
 			</div>
